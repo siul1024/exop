@@ -1,8 +1,10 @@
+from django.db.models import OuterRef, Subquery
 from django.shortcuts import render
 
 # Create your views here.
+from django.views.generic import ListView
 
-from first_app.models import ShopInfo
+from first_app.models import ShopInfo, BuildingInfo, Category
 
 def index(request):
     all_count = ShopInfo.objects.all().count()
@@ -54,3 +56,20 @@ def index(request):
     }
 
     return render(request, 'index.html', context=context)
+
+
+class C1ListView(ListView):
+    model = ShopInfo.objects.filter(cat_id__cat_name='한식').values('shop_name','bldg')
+    context_object_name = 'c1_shop_list'
+    queryset = ShopInfo.objects.filter(cat_id__cat_name='한식')[:]
+    template_name = 'c_shop/c1_shop_list.html'
+
+    def get_queryset(self):
+        return ShopInfo.objects.filter(cat_id__cat_name='한식')[:]
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        # 수퍼클래스에서 기존 context를 가져옴
+        context = super(C1ListView, self).get_context_data(**kwargs)
+        # 새로운 컨텍스트 정보 추가
+        context['some_data'] = 'just some data'
+        return context
