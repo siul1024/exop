@@ -1,34 +1,35 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <p> </p>
-  <h2>매장 현황</h2>
-  <p></p>
-  <h4> <strong>전체 </strong> {{ all_count }} </h4><p></p>
-<!--  <h2>Dynamic content</h2>-->
-<!--  <p>The library has the following record counts:</p>-->
+  <h2><br><strong>매장 현황</strong></h2>
+  <h4><br><strong>전체 </strong> {{ all_count }} </h4><p></p>
   <ul>
     <p></p>
-    <h5><strong>분류별</strong></h5>
-    <p></p>
+    <h5><br><strong>분류별</strong></h5>
     <li><strong>한식:</strong> {{ c1_count }}</li>
-    <p></p>
     <li><strong>샐러드/샌드위치:</strong> {{ c2_count }}</li>
-    <p></p>
     <li><strong>탕/찌개:</strong> {{ c3_count }}</li>
-    <p></p>
     <li><strong>중식:</strong> {{ c4_count }}</li>
-    <p></p>
     <li><strong>돈까스/일식:</strong> {{ c5_count }}</li>
-    <p></p>
     <li><strong>분식:</strong> {{ c6_count }}</li>
-    <p></p>
     <li><strong>파스타:</strong> {{ c7_count }}</li>
-    <p></p>
     <li><strong>카페/디저트:</strong> {{ c8_count }}</li>
-    <p></p>
     <li><strong>기타:</strong> {{ c9_count }}</li>
-
+  </ul>
+  <ul>
+    <p></p>
+    <h5><br><strong>건물별</strong></h5>
+    <li><strong>삼환하이펙스A:</strong> {{ b1_count }}</li>
+    <li><strong>삼환하이펙스B:</strong> {{ b2_count }}</li>
+    <li><strong>유스페이스1:</strong> {{ b3_count }}</li>
+    <li><strong>유스페이스2:</strong> {{ b4_count }}</li>
+    <li><strong>에이치스퀘어N:</strong> {{ b5_count }}</li>
+    <li><strong>에이치스퀘어S:</strong> {{ b6_count }}</li>
+    <li><strong>브릿지타워:</strong> {{ b7_count }}</li>
+    <li><strong>판교우림W시티:</strong> {{ b8_count }}</li>
+    <li><strong>판교아브뉴프랑:</strong> {{ b9_count }}</li>
+    <li><strong>스타식스코아2:</strong> {{ b10_count }}</li>
+    <li><strong>NS홈쇼핑별관:</strong> {{ b11_count }}</li>
   </ul>
 {% endblock %}
 
