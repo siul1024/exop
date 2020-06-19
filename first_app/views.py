@@ -76,3 +76,20 @@ class C1ListView(ListView):
         # 새로운 컨텍스트 정보 추가
         context['some_data'] = 'just some data'
         return context
+
+
+class C2ListView(ListView):
+    model = ShopInfo.objects.filter(cat_id=2).values('shop_name','bldg')
+    context_object_name = 'c2_shop_list'
+    queryset = ShopInfo.objects.filter(cat_id=2)[:]
+    template_name = 'c_shop/c2_shop_list.html'
+
+    def get_queryset(self):
+        return ShopInfo.objects.filter(cat_id=2)[:]
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(C2ListView, self).get_context_data(**kwargs)
+        context['some_data'] = 'just some data'
+        return context
+
+
