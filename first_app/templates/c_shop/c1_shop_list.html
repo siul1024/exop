@@ -13,14 +13,16 @@
                 {% for model in c1_shop_list %}
                     <li>
                         <a href="">{{ model.shop_name }}</a>
-                        <p style="font-size:12px; color:gray"> {{ model.bldg.bldg_name }}<br>({{ model.bldg.bldg_lat }}, {{ model.bldg.bldg_lng }}) </p>
+                        <p style="font-size:12px; color:gray"> {{ model.bldg.bldg_name }}
+                            <br>{{ model.bldg.bldg_lat }}, {{ model.bldg.bldg_lng }}
+                        </p>
                     </li>
                 {% endfor %}
             </ul>
             {% endblock %}
         </div>
 
-        <div class="col-sm-8">
+        <div class="col-sm-9">
             {% block map_space %}
             <div id="map" style="width:100%;height:550px;"></div>
 
@@ -35,21 +37,30 @@
                     ),
                 };
                 var map = new naver.maps.Map('map', mapOptions);
-            </script>
 
-            {% for model in c1_shop_list %}
-            <script>
-                var marker = new naver.maps.Marker({
-                    position: new naver.maps.LatLng({{ model.bldg.bldg_lat }}, {{ model.bldg.bldg_lng }}),
-                    title: "{{ model.shop_name }}",
-                    map: map
-                });
+                {% for model in c1_shop_list %}
+                    var marker = new naver.maps.Marker({
+                        position: new naver.maps.LatLng({{ model.bldg.bldg_lat }}, {{ model.bldg.bldg_lng }}),
+                        title: "{{ model.shop_name }}",
+                        map: map
+                    });
+                {% endfor %}
             </script>
-            {% endfor %}
-
             {% endblock %}
         </div>
     </div>
+
+    <p style="font-size:12px; color:gray">
+        <br># memo
+        <br>1. 겹침 마커처리
+        <br>2. 스크립트 모듈로 분리방안(맵/마커)
+        <br>3. 매장명 클릭시 지도 중심점을 반영하거나, naver 가게정보링크(db에 각 매장 url 저장해야 함)
+        <br>4. 리스트 정렬
+        <br>5. 뽑기
+    </p>
+
+
+
     {% else %}
         <p>해당 매장이 없습니다.</p>
     {% endif %}

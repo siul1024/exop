@@ -1,11 +1,12 @@
-from django.db.models import OuterRef, Subquery
 from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic import ListView
 
-from first_app.models import ShopInfo, BuildingInfo, Category
+from first_app.models import ShopInfo #, BuildingInfo, Category
 
+# 함수로 사용하는 방법
+# render를 사용해 dict로 전달
 def index(request):
     all_count = ShopInfo.objects.all().count()
     # 분류별
@@ -58,7 +59,9 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
+# 클래스로 사용하는 방법
 class C1ListView(ListView):
+    #join(select_related), 컬럼명__컬럼명
     model = ShopInfo.objects.filter(cat_id__cat_name='한식').values('shop_name','bldg')
     context_object_name = 'c1_shop_list'
     queryset = ShopInfo.objects.filter(cat_id__cat_name='한식')[:]
