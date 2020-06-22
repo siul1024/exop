@@ -7,7 +7,7 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-
+"""
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -72,7 +72,7 @@ class AuthUserUserPermissions(models.Model):
         managed = False
         db_table = 'auth_user_user_permissions'
         unique_together = (('user', 'permission'),)
-
+"""
 
 class BuildingInfo(models.Model):
     bldg_id = models.AutoField(primary_key=True)
@@ -99,7 +99,7 @@ class Category(models.Model):
     def __str__(self):
         return self.cat_name
 
-
+"""
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -142,7 +142,7 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
-
+"""
 
 class ShopInfo(models.Model):
     shop_id = models.AutoField(primary_key=True)

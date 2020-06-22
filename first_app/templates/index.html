@@ -1,45 +1,53 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h2><br><strong>매장 현황</strong></h2>
-  <br>
-  <h4><strong>전체 </strong> {{ all_count }} </h4>
+    <h2><br><strong>매장 현황</strong></h2>
+    <br>
+    <h4><strong>전체 </strong> {{ all_count }} </h4>
 
-  <div class="row">
-      <br>
-      <div class="col-sm-3" style="overflow:auto">
-          <ul>
-              <h5><br><strong>분류별</strong></h5>
-              <br>
-              <li><strong>한식:</strong> {{ c1_count }}</li>
-              <li><strong>샐러드/샌드위치:</strong> {{ c2_count }}</li>
-              <li><strong>탕/찌개:</strong> {{ c3_count }}</li>
-              <li><strong>중식:</strong> {{ c4_count }}</li>
-              <li><strong>돈까스/일식:</strong> {{ c5_count }}</li>
-              <li><strong>분식:</strong> {{ c6_count }}</li>
-              <li><strong>파스타:</strong> {{ c7_count }}</li>
-              <li><strong>카페/디저트:</strong> {{ c8_count }}</li>
-              <li><strong>기타:</strong> {{ c9_count }}</li>
-          </ul>
-      </div>
-      <div class="col-sm-3" style="overflow:auto">
-          <ul>
-              <h5><br><strong>건물별</strong></h5>
-              <br>
-              <li><strong>삼환하이펙스A:</strong> {{ b1_count }}</li>
-              <li><strong>삼환하이펙스B:</strong> {{ b2_count }}</li>
-              <li><strong>유스페이스1:</strong> {{ b3_count }}</li>
-              <li><strong>유스페이스2:</strong> {{ b4_count }}</li>
-              <li><strong>에이치스퀘어N:</strong> {{ b5_count }}</li>
-              <li><strong>에이치스퀘어S:</strong> {{ b6_count }}</li>
-              <li><strong>브릿지타워:</strong> {{ b7_count }}</li>
-              <li><strong>판교우림W시티:</strong> {{ b8_count }}</li>
-              <li><strong>판교아브뉴프랑:</strong> {{ b9_count }}</li>
-              <li><strong>스타식스코아2:</strong> {{ b10_count }}</li>
-              <li><strong>NS홈쇼핑별관:</strong> {{ b11_count }}</li>
-          </ul>
-      </div>
+    <div class="row">
+        <br>
+        <div class="col-sm-3" style="overflow:auto">
+            <ul>
+                <h5><br><strong>분류별</strong></h5>
+                <br>
+                <li><strong>한식:</strong> {{ c1_count }}</li>
+                <li><strong>샐러드/샌드위치:</strong> {{ c2_count }}</li>
+                <li><strong>탕/찌개:</strong> {{ c3_count }}</li>
+                <li><strong>중식:</strong> {{ c4_count }}</li>
+                <li><strong>돈까스/일식:</strong> {{ c5_count }}</li>
+                <li><strong>분식:</strong> {{ c6_count }}</li>
+                <li><strong>파스타:</strong> {{ c7_count }}</li>
+                <li><strong>카페/디저트:</strong> {{ c8_count }}</li>
+                <li><strong>기타:</strong> {{ c9_count }}</li>
+            </ul>
+        </div>
+        <div class="col-sm-3" style="overflow:auto">
+            <ul>
+                <h5><br><strong>건물별</strong></h5>
+                <br>
+                <li><strong>삼환하이펙스A:</strong> {{ b1_count }}</li>
+                <li><strong>삼환하이펙스B:</strong> {{ b2_count }}</li>
+                <li><strong>유스페이스1:</strong> {{ b3_count }}</li>
+                <li><strong>유스페이스2:</strong> {{ b4_count }}</li>
+                <li><strong>에이치스퀘어N:</strong> {{ b5_count }}</li>
+                <li><strong>에이치스퀘어S:</strong> {{ b6_count }}</li>
+                <li><strong>브릿지타워:</strong> {{ b7_count }}</li>
+                <li><strong>판교우림W시티:</strong> {{ b8_count }}</li>
+                <li><strong>판교아브뉴프랑:</strong> {{ b9_count }}</li>
+                <li><strong>스타식스코아2:</strong> {{ b10_count }}</li>
+                <li><strong>NS홈쇼핑별관:</strong> {{ b11_count }}</li>
+            </ul>
+        </div>
     </div>
+    <p style="font-size:12px; color:gray">
+        <br># memo
+        <br>1. 겹침 마커처리
+        <br>2. 스크립트 모듈로 분리방안(맵/마커)
+        <br>3. 매장명 클릭시 지도 중심점을 반영하거나, naver 가게정보링크(db에 각 매장 url 저장해야 함)
+        <br>4. 리스트 정렬
+        <br>5. 뽑기
+    </p>
 
 {% endblock %}
 

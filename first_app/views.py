@@ -93,3 +93,106 @@ class C2ListView(ListView):
         return context
 
 
+class C3ListView(ListView):
+    model = ShopInfo.objects.filter(cat_id=3).values('shop_name','bldg')
+    context_object_name = 'c3_shop_list'
+    queryset = ShopInfo.objects.filter(cat_id=3)[:]
+    template_name = 'c_shop/c3_shop_list.html'
+
+    def get_queryset(self):
+        return ShopInfo.objects.filter(cat_id=3)[:]
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(C3ListView, self).get_context_data(**kwargs)
+        context['some_data'] = 'just some data'
+        return context
+
+
+class C4ListView(ListView):
+    model = ShopInfo.objects.filter(cat_id=4).values('shop_name','bldg')
+    context_object_name = 'c4_shop_list'
+    queryset = ShopInfo.objects.filter(cat_id=4)[:]
+    template_name = 'c_shop/c4_shop_list.html'
+
+    def get_queryset(self):
+        return ShopInfo.objects.filter(cat_id=4)[:]
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(C4ListView, self).get_context_data(**kwargs)
+        context['some_data'] = 'just some data'
+        return context
+
+
+class C5ListView(ListView):
+    model = ShopInfo.objects.filter(cat_id=5).values('shop_name','bldg')
+    context_object_name = 'c5_shop_list'
+    queryset = ShopInfo.objects.filter(cat_id=5)[:]
+    template_name = 'c_shop/c5_shop_list.html'
+
+    def get_queryset(self):
+        return ShopInfo.objects.filter(cat_id=5)[:]
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(C5ListView, self).get_context_data(**kwargs)
+        context['some_data'] = 'just some data'
+        return context
+
+
+class C6ListView(ListView):
+    model = ShopInfo.objects.filter(cat_id=6).values('shop_name','bldg')
+    context_object_name = 'c6_shop_list'
+    queryset = ShopInfo.objects.filter(cat_id=6)[:]
+    template_name = 'c_shop/c6_shop_list.html'
+
+    def get_queryset(self):
+        return ShopInfo.objects.filter(cat_id=6)[:]
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(C6ListView, self).get_context_data(**kwargs)
+        context['some_data'] = 'just some data'
+        return context
+
+
+class C7ListView(ListView):
+    model = ShopInfo.objects.filter(cat_id=7).values('shop_name','bldg')
+    context_object_name = 'c7_shop_list'
+    queryset = ShopInfo.objects.filter(cat_id=7)[:]
+    template_name = 'c_shop/c7_shop_list.html'
+
+    def get_queryset(self):
+        return ShopInfo.objects.filter(cat_id=7)[:]
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(C7ListView, self).get_context_data(**kwargs)
+        context['some_data'] = 'just some data'
+        return context
+
+
+class C8ListView(ListView):
+    model = ShopInfo.objects.filter(cat_id=8).values('shop_name','bldg')
+    context_object_name = 'c8_shop_list'
+    queryset = ShopInfo.objects.filter(cat_id=8)[:]
+    template_name = 'c_shop/c8_shop_list.html'
+
+    def get_queryset(self):
+        return ShopInfo.objects.filter(cat_id=8)[:]
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(C8ListView, self).get_context_data(**kwargs)
+        context['some_data'] = 'just some data'
+        return context
+
+
+class C9ListView(ListView):
+    model = ShopInfo.objects.filter(cat_id=9).values('shop_name','bldg')
+    context_object_name = 'c9_shop_list'
+    queryset = ShopInfo.objects.filter(cat_id=9)[:]
+    template_name = 'c_shop/c9_shop_list.html'
+
+    def get_queryset(self):
+        return ShopInfo.objects.filter(cat_id=9)[:]
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(C9ListView, self).get_context_data(**kwargs)
+        context['some_data'] = 'just some data'
+        return context
