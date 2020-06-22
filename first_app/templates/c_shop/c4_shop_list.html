@@ -3,14 +3,14 @@
 {% block content %}
 
     <br><br>
-    <h4> 한식 </h4>
+    <h4> 중식 </h4>
     <br><br>
-    {% if c1_shop_list %}
+    {% if c4_shop_list %}
     <div class="row">
         <div class="col-sm-3" style="overflow:auto; height:550px">
             {% block shop_list %}
             <ul>
-                {% for model in c1_shop_list %}
+                {% for model in c4_shop_list %}
                     <li>
                         <a href="">{{ model.shop_name }}</a>
                         <p style="font-size:12px; color:gray"> {{ model.bldg.bldg_name }}
@@ -26,9 +26,8 @@
             {% block map_space %}
             <div id="map" style="width:100%;height:550px;"></div>
             <script>
-                //object 전달
                 var marker_list = [];
-                {% for model in c1_shop_list %}
+                {% for model in c4_shop_list %}
                     marker_list.push({
                         shop_name: "{{ model.shop_name }}",
                         bldg_lat: {{ model.bldg.bldg_lat }},
@@ -38,8 +37,6 @@
             </script>
             {% load static %}
             <script src="{% static 'js/mapOption.js' %}"></script>
-
-
             {% endblock %}
         </div>
     </div>
