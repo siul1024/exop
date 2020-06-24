@@ -11,13 +11,13 @@
             {% block shop_list %}
             <ul>
                 {% for model in c1_shop_list %}
-                    <li>
-                        <a href="">{{ model.shop_name }}</a>
-                        <p style="font-size:12px; color:gray"> {{ model.bldg.bldg_name }}
-                            <br>{{ model.bldg.bldg_lat }}, {{ model.bldg.bldg_lng }}
-                        </p>
-                    </li>
-                {% endfor %}
+<!--                        <a href="">{{ model.shop_name }}</a><br>-->
+                    <input type="button" name="shop_button" style="background-color:white; border:1.5px #AAAAAA solid;"
+                           value="{{ model.shop_name }}" />
+                    <p style="font-size:12px; color:gray"> {{ model.bldg.bldg_name }}
+                        <br>{{ model.bldg.bldg_lat }}, {{ model.bldg.bldg_lng }}
+                    </p>
+            {% endfor %}
             </ul>
             {% endblock %}
         </div>
@@ -27,6 +27,7 @@
             <div id="map" style="width:100%;height:550px;"></div>
 
             <script>
+                let obj_map;
                 //object 전달
                 var marker_list = [];
                 {% for model in c1_shop_list %}
