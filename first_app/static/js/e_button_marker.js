@@ -20,7 +20,7 @@ var ButtonClass = class {
 
         document.getElementById(this.target).appendChild(this.btn);
         document.write('<p style="font-size:12px; color:gray">');
-        document.write(this.bldg_name+'<br>'+this.bldg_lat+' ,'+this.bldg_lng+'</p>');
+        document.write(this.bldg_name+'<br>'+'</p>');
     }
 }
 
@@ -31,7 +31,11 @@ for (key in marker_list){
 document.getElementById('shoplist').addEventListener('click', function(e){
     console.log(e.target);
     if(e.target.type === "button"){
-        obj_map.setCenter(new naver.maps.LatLng(marker_list[e.target.id].bldg_lat, marker_list[e.target.id].bldg_lng));
+        removeAllMarker();
+        var position = new naver.maps.LatLng(marker_list[e.target.id].bldg_lat, marker_list[e.target.id].bldg_lng);
+        var marker = addMarker(position, e.target.id);
+        markers.push(marker);
+        obj_map.setCenter(position);
     }
     else{
 
