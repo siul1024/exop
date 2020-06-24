@@ -1,49 +1,37 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
     <br><br>
     <h4> 분식 </h4>
     <br><br>
+    <script>
     {% if c6_shop_list %}
+        var shop_info_list = [];
+        {% for model in c6_shop_list %}
+            shop_info_list.push({
+                shop_name: "{{ model.shop_name }}",
+                bldg: "{{ model.bldg }}",
+                bldg_lat: {{ model.bldg.bldg_lat }},
+                bldg_lng: {{ model.bldg.bldg_lng }},
+            });
+        {% endfor %}
+    </script>
     <div class="row">
-        <div class="col-sm-3" style="overflow:auto; height:550px">
+        <div class="col-sm-3" id="shoplist" style="overflow:auto; height:550px" >
             {% block shop_list %}
-            <ul>
-                {% for model in c6_shop_list %}
-                    <li>
-                        <a href="">{{ model.shop_name }}</a>
-                        <p style="font-size:12px; color:gray"> {{ model.bldg.bldg_name }}
-                            <br>{{ model.bldg.bldg_lat }}, {{ model.bldg.bldg_lng }}
-                        </p>
-                    </li>
-                {% endfor %}
-            </ul>
+            {% load static %}
+            <script src="{% static 'js/e_button_marker.js' %}"></script>
             {% endblock %}
         </div>
-
         <div class="col-sm-9">
             {% block map_space %}
             <div id="map" style="width:100%;height:550px;"></div>
-            <script>
-                var marker_list = [];
-                {% for model in c6_shop_list %}
-                    marker_list.push({
-                        shop_name: "{{ model.shop_name }}",
-                        bldg_lat: {{ model.bldg.bldg_lat }},
-                        bldg_lng: {{ model.bldg.bldg_lng }},
-                    });
-                {% endfor %}
-            </script>
             {% load static %}
-            <script src="{% static 'js/mapOption.js' %}"></script>
+            <script defer src="{% static 'js/mapOption.js' %}"></script>
             {% endblock %}
         </div>
     </div>
-
     {% else %}
         <p>해당 매장이 없습니다.</p>
-
     {% endif %}
-
 {% endblock %}

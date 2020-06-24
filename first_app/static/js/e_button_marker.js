@@ -24,15 +24,15 @@ var ButtonClass = class {
     }
 }
 
-for (key in marker_list){
-    var btn = new ButtonClass(marker_list[key], key);
+for (key in shop_info_list){
+    var btn = new ButtonClass(shop_info_list[key], key);
 };
 
 document.getElementById('shoplist').addEventListener('click', function(e){
     console.log(e.target);
     if(e.target.type === "button"){
         removeAllMarker();
-        var position = new naver.maps.LatLng(marker_list[e.target.id].bldg_lat, marker_list[e.target.id].bldg_lng);
+        var position = new naver.maps.LatLng(shop_info_list[e.target.id].bldg_lat, shop_info_list[e.target.id].bldg_lng);
         var marker = addMarker(position, e.target.id);
         markers.push(marker);
         obj_map.setCenter(position);
