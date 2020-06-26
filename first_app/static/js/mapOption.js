@@ -1,5 +1,7 @@
 
 window.onload = function(){
+
+
     var mapOptions = {
         center: new naver.maps.LatLng(37.402799, 127.111505),
         zoom:17,

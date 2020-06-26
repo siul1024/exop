@@ -419,7 +419,7 @@ naver.maps.Util.ClassExtend(MarkerClustering, naver.maps.OverlayView, {
 	 */
 	_onDragEnd: function() {
 		this._redraw();
-	}
+	},
 });
 
 /**
@@ -435,7 +435,10 @@ var Cluster = function(markerClusterer) {
 	this._clusterMember = [];
 
 	this._markerClusterer = markerClusterer;
+
+
 };
+
 
 Cluster.prototype = {
 	constructor: Cluster,
@@ -501,15 +504,25 @@ Cluster.prototype = {
 	 */
 	getCount: function() {
 		return this._clusterMember.length;
-  },
+    },
+    //_clusterMarker.title
+    getShopList: function() {
+        var str = '';
+        for(var i=0; i<this._clusterMember.length; ++i){
+                str += this._clusterMember[i].title+'\n';
+        };
+        return str;
+    },
+
+
 
   /**
 	 * 현재의 클러스터 멤버 마커 객체를 반환합니다.
 	 * @return {naver.maps.Marker[]} 클러스터를 구성하는 마커 객체 집합
 	 */
-  getClusterMember: function() {
-    return this._clusterMember;
-  },
+    getClusterMember: function() {
+        return this._clusterMember;
+    },
 
 	/**
 	 * 전달된 위/경도가 클러스터 경계 영역 내에 있는지 여부를 반환합니다.
@@ -519,7 +532,7 @@ Cluster.prototype = {
 	isInBounds: function(latlng) {
 		return this._clusterBounds && this._clusterBounds.hasLatLng(latlng);
   },
-
+    /*************************/ //변경해주기 클릭시 title 리스트 보여주기
 	/**
 	 * 클러스터 마커 클릭 시 줌 동작을 수행하도록 합니다.
 	 */
@@ -528,9 +541,17 @@ Cluster.prototype = {
 
 		var map = this._markerClusterer.getMap();
 
+//		this._relation = naver.maps.Event.addListener(this._clusterMarker, 'click', naver.maps.Util.bind(function(e) {
+//			map.morph(e.coord, map.getZoom() + 1);
+//		}, this));
+
 		this._relation = naver.maps.Event.addListener(this._clusterMarker, 'click', naver.maps.Util.bind(function(e) {
-			map.morph(e.coord, map.getZoom() + 1);
+            console.log(e);
+            console.log(this._clusterMarker.length);
+
+            console.log(this._clusterMarker.title);
 		}, this));
+
 	},
 
 	/**
@@ -561,7 +582,8 @@ Cluster.prototype = {
 
 			this._clusterMarker = new naver.maps.Marker({
 				position: position,
-				map: this._markerClusterer.getMap()
+				map: this._markerClusterer.getMap(),
+				title: this.getShopList(),
 			});
 
 			if (!this._markerClusterer.getDisableClickZoom()) {
@@ -596,12 +618,13 @@ Cluster.prototype = {
 	},
 
 	/**
-	 * 클러스터를 구성하는 마커 수를 갱신합니다.
+	 * 클러스터를 구성하는 마커 수를 갱신, title 재정의
 	 */
 	updateCount: function() {
 		var stylingFunction = this._markerClusterer.getStylingFunction();
 
 		stylingFunction && stylingFunction(this._clusterMarker, this.getCount());
+
 	},
 
 	/**
