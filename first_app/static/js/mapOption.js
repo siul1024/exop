@@ -1,7 +1,6 @@
 
 window.onload = function(){
 
-
     var mapOptions = {
         center: new naver.maps.LatLng(37.402799, 127.111505),
         zoom:17,
@@ -31,7 +30,8 @@ window.onload = function(){
         addMarker_img(position, key, htmlMarker_blue);
     };
 
-
+    var position = new naver.maps.LatLng(shop_info_list[0].bldg_lat, shop_info_list[0].bldg_lng);
+    obj_map.setCenter(position);
 
     markerClustering = new MarkerClustering({
         minClusterSize: 2,
@@ -46,6 +46,7 @@ window.onload = function(){
             $(clusterMarker.getElement()).find('div:first-child').text(count);
         }
     });
+
 }
 
 function addMarker(position, id){
