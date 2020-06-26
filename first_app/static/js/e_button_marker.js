@@ -33,8 +33,8 @@ document.getElementById('shoplist').addEventListener('click', function(e){
     if(e.target.type === "button"){
         var position = new naver.maps.LatLng(shop_info_list[e.target.id].bldg_lat, shop_info_list[e.target.id].bldg_lng);
         obj_map.setCenter(position);
-        removeAllMarker();
         removeAllCluster();
+        removeAllMarker();
         var htmlMarker_pink = {
             content: '<div style="cursor:pointer;width:35px;height:35px;line-height:52px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(/static/img/map-marker-2.png);background-size:contain;"></div>',
             size: new naver.maps.Size(40, 40),

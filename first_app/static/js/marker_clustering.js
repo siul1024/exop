@@ -56,7 +56,7 @@ naver.maps.Util.ClassExtend(MarkerClustering, naver.maps.OverlayView, {
 	onAdd: function() {
 		var map = this.getMap();
 
-		this._mapRelations = naver.maps.Event.addListener(map, 'idle', naver.maps.Util.bind(this._onIdle, this));
+//		this._mapRelations = naver.maps.Event.addListener(map, 'idle', naver.maps.Util.bind(this._onIdle, this));
 
 		if (this.getMarkers().length > 0) {
 			this._createClusters();

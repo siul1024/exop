@@ -3,7 +3,7 @@ window.onload = function(){
     var mapOptions = {
         center: new naver.maps.LatLng(37.402799, 127.111505),
         zoom:17,
-        minZoom: 14,
+        minZoom: 15,
         maxZoom: 19,
         maxBounds: new naver.maps.LatLngBounds(
             new naver.maps.LatLng(37.393587, 127.096515),
