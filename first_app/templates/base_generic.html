@@ -5,8 +5,8 @@
     <title>
     {% block title %} SHOP STATUS {% endblock %}
     </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -15,6 +15,7 @@
     <script>
         let obj_map;
         let markers = [];
+        let markerClustering;
     </script>
 </head>
 <body>

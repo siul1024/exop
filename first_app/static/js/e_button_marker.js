@@ -31,13 +31,15 @@ for (key in shop_info_list){
 document.getElementById('shoplist').addEventListener('click', function(e){
     console.log(e.target);
     if(e.target.type === "button"){
-        removeAllMarker();
         var position = new naver.maps.LatLng(shop_info_list[e.target.id].bldg_lat, shop_info_list[e.target.id].bldg_lng);
-        var marker = addMarker(position, e.target.id);
-        markers.push(marker);
         obj_map.setCenter(position);
+//        removeAllMarker();
+        removeAllCluster();
+        addMarker(position, e.target.id);
+
     }
     else{
 
     }
 });
+
