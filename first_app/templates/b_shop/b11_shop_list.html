@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <br><br>
+    <h4> NS홈쇼핑별관 </h4>
+    <br><br>
+    <script>
+    {% if b11_shop_list %}
+        var shop_info_list = [];
+        {% for model in b11_shop_list %}
+            shop_info_list.push({
+                shop_name: "{{ model.shop_name }}",
+                bldg: "{{ model.bldg }}",
+                bldg_lat: {{ model.bldg.bldg_lat }},
+                bldg_lng: {{ model.bldg.bldg_lng }},
+                cat: "{{ model.cat.cat_name }}",
+            });
+        {% endfor %}
+    </script>
+    <div class="row">
+        <div class="col-sm-3" id="shoplist" style="overflow:auto; height:550px" >
+            {% block shop_list %}
+            {% load static %}
+            <script src="{% static 'js/e_button_marker.js' %}"></script>
+            {% endblock %}
+        </div>
+        <div class="col-sm-9">
+            {% block map_space %}
+            <div id="map" style="width:100%;height:550px;"></div>
+            {% load static %}
+            <script defer src="{% static 'js/mapOption.js' %}"></script>
+            {% endblock %}
+        </div>
+    </div>
+    {% else %}
+        <p>해당 매장이 없습니다.</p>
+    {% endif %}
+{% endblock %}
